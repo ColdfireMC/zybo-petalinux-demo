@@ -1,4 +1,4 @@
-# *Setup* Básico Con Digilent *Zybo* o *PYNQ* #
+# *Setup* Básico Con Digilent *Zybo* #
 
 * Crear un "Block Design" de Vivado.
 * Importar *Constraints*, si se desea agregar RTL (Prefiera activar copiar el .xdc dentro del proyecto.	
@@ -133,5 +133,7 @@ Del menú "Xilinx" debe seleccionarse "Program Flash". Asegurarse que la tarjeta
 * La "actualización" de plataformas no es capaz de encontrar el bitstream exportado por Vivado, asi que cada vez que se altere la plataforma, debe recrearse nuevamente. Esto rompe parte de la característica de portabilidad Automática.
 * Cuando se crea primero una plataforma y después la aplicación, con el *Workspace* vacío, el mago generador de aplicaciones no puede encontrar la definición de plataforma ya creada y queda incompleta y no puede terminarse, o bien, debe seleccionarse una de las incluidas en Vitis y luego reasignar la plataforma manualmente (Cuidado con las inicializaciones, porque si fueron modificadas por el programador, serán totalmente incompatibles).
 * Pese a que los archivos de Digilent incluyen información sobre los dispositivos de la placa, hay que especificar la *Flash* SPI a mano.
+
+## Crear Proyectos Petalinux ##
 
 
