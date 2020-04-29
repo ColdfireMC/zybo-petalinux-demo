@@ -198,5 +198,13 @@ o bien, si solo hay una configuración
 ```bash
 $ petalinux-package
 ```
-Sin embargo debe notarse que la imagen predeterminada podría exceder ampliamente el tamaño de la memoria. Debe configurarse el Núcleo (Kernel) y el RootFS para descartar cualquier componente que se considere innecesario.
+Sin embargo debe notarse que la imagen predeterminada podría exceder ampliamente el tamaño de la memoria. Debe configurarse el Núcleo (Kernel) y el RootFS para descartar cualquier componente que se considere innecesario, entre ellos, controladores de dispositivos que no va a estar conectados, aplicaciones y *daemons* que no se van a usar.
+
+```bash
+$ cd <carpeta_con_nombre_del_proyecto>
+$ petalinux-config -c kernel
+$ petalinux-config -c rootfs
+```
+Al hacer cualquiera de estos cambios, la imagen debe reconstruirse. Luego con la tarjeta conectada y con Xilinx Vitis
+
 
