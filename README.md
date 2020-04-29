@@ -136,4 +136,11 @@ Del menú "Xilinx" debe seleccionarse "Program Flash". Asegurarse que la tarjeta
 
 ## Crear Proyectos Petalinux ##
 
+```bash
+# mkdir /opt/pkg/petalinux/2019.2/
+# chown <suusuario> /opt/pkg/petalinux/2019.2/
+$ ./petalinux-v2019.2-final-installer.run /opt/pkg/petalinux/2019.2
+```
+```bash
 
+```
