@@ -136,11 +136,32 @@ Del menú "Xilinx" debe seleccionarse "Program Flash". Asegurarse que la tarjeta
 
 ## Crear Proyectos Petalinux ##
 
+### Instalando Petalinux ###
+
 ```bash
 # mkdir /opt/pkg/petalinux/2019.2/
-# chown <suusuario> /opt/pkg/petalinux/2019.2/
+# chown <su_usuario> /opt/pkg/petalinux/2019.2/
 $ ./petalinux-v2019.2-final-installer.run /opt/pkg/petalinux/2019.2
 ```
+### Inicializando Entorno Petalinux ###
 ```bash
+$ source <path-to-installed-PetaLinux>/settings.sh
+```
+```bash
+```
+### Crear Proyectos Petalinux Desde BSP###
 
+```bash
+$ source <path-to-installed-PetaLinux>/settings.sh
+petalinux-create -t project -s <ruta_al_bsp>
+```
+Deben ser de la misma versión.
+### Crear Proyectos Petalinux Desde Definición de Hardware Generada con Vivado ###
+```bash
+petalinux-create --type project --template <PLATFORM> --name <PROJECT_NAME>
+```
+
+```bash
+$ source <path-to-installed-PetaLinux>/settings.sh
+petalinux-create -t project -s <ruta_al_bsp>
 ```
