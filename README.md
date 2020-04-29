@@ -153,15 +153,16 @@ $ source <path-to-installed-PetaLinux>/settings.sh
 
 ```bash
 $ source <path-to-installed-PetaLinux>/settings.sh
-petalinux-create -t project -s <ruta_al_bsp>
+$ petalinux-create -t project -s <ruta_al_bsp>
 ```
 Deben ser de la misma versión.
 ### Crear Proyectos Petalinux Desde Definición de Hardware Generada con Vivado ###
 ```bash
-petalinux-create --type project --template <PLATFORM> --name <PROJECT_NAME>
-```
-
-```bash
 $ source <path-to-installed-PetaLinux>/settings.sh
-petalinux-create -t project -s <ruta_al_bsp>
+petalinux-create --type project --template zynq --name <nombre_del_proyecto>
+```
+Esto creará una carpeta con el nombre del proyecto, luego debe configurarse el proyecto con la definición de hardware creada con Vivado
+```bash
+$ cd <carpeta_con_nombre_del_proyecto>
+$ petalinux-config --get-hw-description=<carpeta_del_proyecto_de_Vivado>
 ```
