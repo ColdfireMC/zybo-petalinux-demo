@@ -162,7 +162,41 @@ $ source <path-to-installed-PetaLinux>/settings.sh
 petalinux-create --type project --template zynq --name <nombre_del_proyecto>
 ```
 Esto creará una carpeta con el nombre del proyecto, luego debe configurarse el proyecto con la definición de hardware creada con Vivado
+
 ```bash
 $ cd <carpeta_con_nombre_del_proyecto>
 $ petalinux-config --get-hw-description=<carpeta_del_proyecto_de_Vivado>
 ```
+Esto Iniciará un configurador `Kconfig` de la imagen. En muchos casos la configuración predeterminada es satisfactoria, por lo que bastará con seleccionar <kbd>Save</kbd>.
+
+### Construir Petalinux ###
+Para construir el sistema completo predeterminado
+```bash
+$ cd <carpeta_con_nombre_del_proyecto>
+$ petalinux-build
+```
+Esto podría tardar hasta 15 minutos
+
+### Generar Imagen empaquetada Para SD ###
+Las imágenes construidas van a estar en `<carpeta_con_nombre_del_proyecto>/images/linux`. 
+```bash
+$ petalinux-package --boot --fsbl <Imagen FSBL> --fpga <bitstream> --u-boot
+```
+o bien, si solo hay una configuración
+```bash
+$ petalinux-package
+```
+los archivos `BOOT.BIN` e `image.ub` en `<carpeta_con_nombre_del_proyecto>/images/linux` deben ser copiados a una sd con formato FAT32. Esto es suficiente para que el Zynq logre arrancar Petalinux
+
+### Generar Imagen empaquetada Para SPI ###
+
+Las imágenes construidas van a estar en `<carpeta_con_nombre_del_proyecto>/images/linux`. 
+```bash
+$ petalinux-package --boot --fsbl <Imagen FSBL> --fpga <bitstream> --u-boot
+```
+o bien, si solo hay una configuración
+```bash
+$ petalinux-package
+```
+Sin embargo debe notarse que la imagen predeterminada podría exceder ampliamente el tamaño de la memoria. Debe configurarse el Núcleo (Kernel) y el RootFS para descartar cualquier componente que se considere innecesario.
+
