@@ -205,6 +205,6 @@ $ cd <carpeta_con_nombre_del_proyecto>
 $ petalinux-config -c kernel
 $ petalinux-config -c rootfs
 ```
-Al hacer cualquiera de estos cambios, la imagen debe reconstruirse. Luego con la tarjeta conectada y con Xilinx Vitis
+Al hacer cualquiera de estos cambios, la imagen debe reconstruirse. Luego con la tarjeta conectada y con Xilinx Vitis, debe crearse una aplicación del mismo modo que una aplicación baremetal. Asegurarse que se está referenciando la plataforma correcta. 
 
 
